@@ -10,15 +10,13 @@
 
 function operator(proxies) {
   proxies.push(
-    Object.assign({}, proxies[0], {
-      server: "59.81.87.108",
+    Object.assign({}, proxies[proxies.length - 1], {
       port: 50009,
       name: "🇱🇺 LU 硝酸二甲酯 0.01x",
     })
   );
   proxies.push(
     Object.assign({}, proxies[proxies.length - 1], {
-      server: "59.81.87.108",
       port: 50012,
       name: "🇸🇬 SG 苯巴比妥钠 0.01x",
     })
