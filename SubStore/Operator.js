@@ -27,7 +27,7 @@ function operator(proxies) {
     Object.assign({}, proxies[0], {
       server: "traffic-in-02.811920.xyz",
       port: 50013,
-      name: "🇭🇰 HK 丁香酰氧胺 x 0.01",
+      name: "🇭🇰 HK 丁香酰氧胺 0.01x",
     })
   );
   return proxies;
