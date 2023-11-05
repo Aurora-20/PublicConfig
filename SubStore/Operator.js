@@ -9,20 +9,23 @@
  */
 
 function operator(proxies) {
+  const proxy = Object.assign({}, proxies[0], {
+    server: "traffic-in-02.811920.xyz",
+  });
   proxies.push(
-    Object.assign({}, proxies[proxies.length - 1], {
+    Object.assign({}, proxy, {
       port: 50009,
       name: "🇱🇺 LU 硝酸二甲酯 0.01x",
     })
   );
   proxies.push(
-    Object.assign({}, proxies[proxies.length - 1], {
+    Object.assign({}, proxy, {
       port: 50012,
       name: "🇸🇬 SG 苯巴比妥钠 0.01x",
     })
   );
   proxies.push(
-    Object.assign({}, proxies[proxies.length - 1], {
+    Object.assign({}, proxy, {
       port: 50013,
       name: "🇭🇰 HK 丁香酰氧胺 x 0.01",
     })
