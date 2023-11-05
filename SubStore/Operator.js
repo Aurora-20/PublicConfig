@@ -21,5 +21,11 @@ function operator(proxies) {
       name: "🇸🇬 SG 苯巴比妥钠 0.01x",
     })
   );
+  proxies.push(
+    Object.assign({}, proxies[proxies.length - 1], {
+      port: 50013,
+      name: "🇭🇰 HK 丁香酰氧胺 x 0.01",
+    })
+  );
   return proxies;
 }
