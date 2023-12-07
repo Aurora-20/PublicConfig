@@ -1,5 +1,5 @@
 /**
- * Update : 2023/11/01 14:55:44
+ * Update : 2023/12/07 19:37:30
  *
  * 1. 功能：为 SYN 已订阅用户快速在 SubStore 中添加低倍率节点；
  * 2. 感谢 @baixiaofei233 提供的思路；
@@ -9,25 +9,64 @@
  */
 
 function operator(proxies) {
-  proxies.push(
+  /**
+   * @param insertIndex: 插入元素的位置
+   */
+  let insertIndex = 0;
+  /**
+   * @param flag: 是否找到插入位置
+   */
+  let flag = false;
+  // * 插入第一个元素（在 🇭🇰 的最后插入）
+  for (const proxy of proxies) {
+    // * 判断是否找到 🇭🇰
+    if (/^🇭🇰.*$/.test(proxy.name)) {
+      // * 找到插入位置
+      flag = true;
+    } else if (flag) {
+      // * 🇭🇰 后的第一个元素
+      flag = false;
+      break;
+    }
+    // * 更新插入元素的位置
+    insertIndex++;
+  }
+  // * 在 insertIndex 插入元素
+  proxies.splice(
+    insertIndex,
+    0,
     Object.assign({}, proxies[0], {
       server: "traffic-in-lite.811920.xyz",
-      port: 50009,
-      name: "🇱🇺 LU 硝酸二甲酯 0.01x",
+      port: 50013,
+      name: "🇭🇰 HK 丁香酰氧胺 0.01x",
     })
   );
-  proxies.push(
+  // * 重置插入元素位置
+  insertIndex = 0;
+  for (const proxy of proxies) {
+    if (/^🇸🇬.*$/.test(proxy.name)) {
+      flag = true;
+    } else if (flag) {
+      flag = false;
+      break;
+    }
+    insertIndex++;
+  }
+  proxies.splice(
+    insertIndex,
+    0,
     Object.assign({}, proxies[0], {
       server: "traffic-in-lite.811920.xyz",
       port: 50012,
       name: "🇸🇬 SG 苯巴比妥钠 0.01x",
     })
   );
+
   proxies.push(
     Object.assign({}, proxies[0], {
       server: "traffic-in-lite.811920.xyz",
-      port: 50013,
-      name: "🇭🇰 HK 丁香酰氧胺 0.01x",
+      port: 50009,
+      name: "🇱🇺 LU 硝酸二甲酯 0.01x",
     })
   );
   return proxies;
